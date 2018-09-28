@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +7,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  @Output() LinkIdentifier =  new EventEmitter<{linkClicked: string}>();
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  recipes() {
+    this.LinkIdentifier.emit({
+      linkClicked: 'recipes'
+    });
+  }
+
+  shoppingList() {
+    this.LinkIdentifier.emit({
+      linkClicked: 'shoppingList'
+    });
   }
 
 }

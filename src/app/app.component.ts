@@ -7,4 +7,18 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+
+  recipeFlag: boolean = true;
+  shoppingListFlag: boolean = false;
+
+  checkLink(linkInfo: {linkClicked: string}) {
+    if(linkInfo.linkClicked === 'recipes') {
+      this.recipeFlag = true;
+      this.shoppingListFlag = false;
+    }
+    if(linkInfo.linkClicked === 'shoppingList') {
+      this.shoppingListFlag = true;
+      this.recipeFlag = false;
+    }
+  }
 }
